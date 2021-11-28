@@ -1,0 +1,52 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface Clonable
+abstract class Shape {
+    -id:String
+    +type:String
+
+    +getType():void
+    +getId():String
+    +setId():void
+    +clone():Object
+}
+class Circle {
+    -type: String
+
+    +getType():void
+    +getId():String
+    +setId():void
+    +clone():Object
+}
+class Rectangle {
+    -type: String
+
+    +getType():void
+    +getId():String
+    +setId():void
+    +clone():Object
+}
+class Square {
+    -type: String
+
+    +getType():void
+    +getId():String
+    +setId():void
+    +clone():Object
+}
+class ShapeCache {
+    -shapeMap: HashMap
+
+    +getShape():Shape
+    +loadCache():void
+}
+
+Clonable <|-- Shape
+Shape <|-- Circle
+Shape <|-- Rectangle
+Shape <|-- Square
+
+ShapeCache -* Shape
+
+@enduml

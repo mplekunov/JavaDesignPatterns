@@ -1,0 +1,10 @@
+@startuml
+
+class SingleObject {
+    -instance:SingleObject
+    -SingleObject()
+
+    +getInstance():SingleObject
+}
+
+@enduml
