@@ -1,0 +1,34 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface Shape {
+    +draw(): void
+}
+
+class Circle implements Shape {
+    +draw(): void
+}
+
+class Rectangle implements Shape {
+    +draw(): void
+}
+
+abstract class ShapeDecorator implements Shape {
+    #decoratedShape: Shape
+
+    +ShapeDecorator():void
+    +draw(): void
+
+}
+
+
+class RedShapeDecorator implements ShapeDecorator {
+    +shape: Shape
+
+    +RedShapeDecorator(): void
+    +draw(): void
+    -setBorder(): void
+}
+
+ShapeDecorator --o Shape
+@enduml

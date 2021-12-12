@@ -1,0 +1,18 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Employee {
+    -name: String
+    -department: String
+    -salary: int
+    -subordinates: List<Employee>
+
+    +Employee()
+    +add(): void
+    +remove(): void
+    +getSubordinates(): List<Employee>
+    +toString(): String
+}
+
+Employee -o Employee
+@enduml

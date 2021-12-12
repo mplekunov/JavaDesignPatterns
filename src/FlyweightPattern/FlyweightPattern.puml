@@ -1,0 +1,26 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class ShapeFactory {
+    -circleMap: HashMap
+
+    +getCircle(): Shape
+}
+
+class Circle implements Shape {
+    -x, y, radius: int
+    -color: String
+
+    +Circle(): void
+    +setX(): void
+    +setY(): void
+    +setRadius(): void
+    +draw(): void
+}
+
+interface Shape {
+    +draw(): void
+}
+
+ShapeFactory -* Circle
+@enduml

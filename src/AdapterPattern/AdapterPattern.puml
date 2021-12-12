@@ -1,0 +1,42 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface MediaPlayer {
+    +play():void
+}
+
+interface AdvancedMediaPlayer {
+    +playVLC():void
+    +playMP4():void
+}
+
+class VlcPLayer implements AdvancedMediaPlayer{
+    +playVLC():void
+    +playMP4():void
+}
+
+class MP4Player implements AdvancedMediaPlayer{
+    +playVLC(): void
+    +playMP4(): void
+}
+
+class MediaAdapter implements MediaPlayer {
+    -advancedMediaPlayer: AdvancedMediaPlayer
+
+    +MediaAdapter(): void
+    +play(): void
+}
+
+class AudioPlayer implements MediaPlayer {
+    -mediaAdapter: MediaAdapter
+
+    +play(): void
+}
+
+AudioPlayer -* MediaAdapter
+
+MediaAdapter -* AdvancedMediaPlayer
+
+
+
+@enduml

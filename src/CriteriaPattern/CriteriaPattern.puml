@@ -1,0 +1,45 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface Criteria {
+    +meetCriteria(): List<Person>
+}
+
+class AndCriteria implements Criteria{
+    -criteria: Criteria
+    -otherCriteria: Criteria
+
+    +meetCriteria(): List<Person>
+}
+
+class OrCriteria implements Criteria{
+    -criteria: Criteria
+    -otherCriteria: Criteria
+
+    +meetCriteria(): List<Person>
+}
+
+class CriteriaFemale implements Criteria{
+    +meetCriteria(): List<Person>
+}
+
+class CriteriaMale implements Criteria{
+     +meetCriteria(): List<Person>
+}
+
+class Person {
+    -name: String
+    -sex: String
+    -martialStatus: String
+
+    +Person()
+    +getAge(): String
+    +getSex(): String
+    +getMartialStatus(): String
+}
+
+AndCriteria --o Person
+OrCriteria --o Person
+CriteriaFemale --o Person
+CriteriaMale --o Person
+@enduml

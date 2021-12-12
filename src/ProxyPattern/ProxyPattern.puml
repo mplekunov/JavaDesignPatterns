@@ -1,0 +1,23 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface Image {
+    +display(): void
+}
+
+class RealImage implements Image{
+    +fileName: String
+
+    +RealImage(): void
+    +display(): void
+    +loadFromDisk(): void
+}
+
+class ProxyImage implements Image{
+    +realImage: RealImage
+    +fileName: String
+
+    +ProxyImage(): void
+    +display(): void
+}
+@enduml
